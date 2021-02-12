@@ -2,7 +2,7 @@ package com.springframework.sfgmeetdoc.model;
 
 import java.time.LocalDate;
 
-public class Patient {
+public class Patient extends BaseEntity {
     private PatientType patientType;
     private Owner owner;
     private LocalDate birthDate;

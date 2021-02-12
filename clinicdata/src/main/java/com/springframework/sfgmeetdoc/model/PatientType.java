@@ -1,6 +1,6 @@
 package com.springframework.sfgmeetdoc.model;
 
-public class PatientType {
+public class PatientType extends BaseEntity {
     private String name;
 
     public String getName() {
