@@ -1,0 +1,5 @@
+com\springframework\sfgmeetdoc\model\Doc.class
+com\springframework\sfgmeetdoc\model\Person.class
+com\springframework\sfgmeetdoc\model\Owner.class
+com\springframework\sfgmeetdoc\model\Patient.class
+com\springframework\sfgmeetdoc\model\PatientType.class
