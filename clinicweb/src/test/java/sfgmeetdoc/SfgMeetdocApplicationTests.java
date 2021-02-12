@@ -1,4 +1,4 @@
-package com.springframework.sfgmeetdoc;
+package sfgmeetdoc;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
