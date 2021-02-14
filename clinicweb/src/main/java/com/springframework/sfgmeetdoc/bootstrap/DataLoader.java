@@ -1,0 +1,59 @@
+package com.springframework.sfgmeetdoc.bootstrap;
+
+import com.springframework.sfgmeetdoc.model.Doc;
+import com.springframework.sfgmeetdoc.model.Owner;
+import com.springframework.sfgmeetdoc.services.DocService;
+import com.springframework.sfgmeetdoc.services.OwnerService;
+import com.springframework.sfgmeetdoc.services.map.DocServiceMap;
+import com.springframework.sfgmeetdoc.services.map.OwnerServiceMap;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.stereotype.Component;
+
+@Component
+public class DataLoader implements CommandLineRunner {
+
+    private final OwnerService ownerService;
+    private final DocService docService;
+
+    public DataLoader() {
+        ownerService = new OwnerServiceMap();
+        docService = new DocServiceMap();
+    }
+
+    @Override
+    public void run(String... args) throws Exception {
+
+        Owner owner1 = new Owner();
+        owner1.setId(1L);
+        owner1.setFirstName("Ghanshyam");
+        owner1.setLastName("Das");
+
+        ownerService.save(owner1);
+
+        Owner owner2 = new Owner();
+        owner2.setId(2L);
+        owner2.setFirstName("Mahila");
+        owner2.setLastName("Jaywardhane");
+
+        ownerService.save(owner2);
+
+        System.out.println("Loaded Owners...");
+
+        Doc doc1 = new Doc();
+        doc1.setId(1L);
+        doc1.setFirstName("MaaSaab");
+        doc1.setLastName("Mishra");
+
+        docService.save(doc1);
+
+        Doc doc2 = new Doc();
+        doc2.setId(2L);
+        doc2.setFirstName("Bhamesh");
+        doc2.setLastName("Tripathi");
+
+        docService.save(doc2);
+
+        System.out.println("Loaded Doctors...");
+
+    }
+}

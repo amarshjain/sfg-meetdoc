@@ -3,10 +3,11 @@ package com.springframework.sfgmeetdoc.services.map;
 import com.springframework.sfgmeetdoc.model.Owner;
 import com.springframework.sfgmeetdoc.model.Patient;
 import com.springframework.sfgmeetdoc.services.CrudService;
+import com.springframework.sfgmeetdoc.services.PatientService;
 
 import java.util.Set;
 
-public class PatientServiceMap extends AbstractMapService<Patient, Long> implements CrudService<Patient, Long> {
+public class PatientServiceMap extends AbstractMapService<Patient, Long> implements PatientService {
     @Override
     public Set<Patient> findAll() {
         return super.findAll();
