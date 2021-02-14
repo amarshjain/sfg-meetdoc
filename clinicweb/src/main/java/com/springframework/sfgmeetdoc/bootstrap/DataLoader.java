@@ -4,8 +4,6 @@ import com.springframework.sfgmeetdoc.model.Doc;
 import com.springframework.sfgmeetdoc.model.Owner;
 import com.springframework.sfgmeetdoc.services.DocService;
 import com.springframework.sfgmeetdoc.services.OwnerService;
-import com.springframework.sfgmeetdoc.services.map.DocServiceMap;
-import com.springframework.sfgmeetdoc.services.map.OwnerServiceMap;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -15,9 +13,9 @@ public class DataLoader implements CommandLineRunner {
     private final OwnerService ownerService;
     private final DocService docService;
 
-    public DataLoader() {
-        ownerService = new OwnerServiceMap();
-        docService = new DocServiceMap();
+    public DataLoader(OwnerService ownerService, DocService docService) {
+        this.ownerService = ownerService;
+        this.docService = docService;
     }
 
     @Override

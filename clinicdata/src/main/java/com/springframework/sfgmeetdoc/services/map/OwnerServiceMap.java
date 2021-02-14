@@ -1,12 +1,14 @@
 package com.springframework.sfgmeetdoc.services.map;
 
 import com.springframework.sfgmeetdoc.model.Owner;
-import com.springframework.sfgmeetdoc.services.CrudService;
 import com.springframework.sfgmeetdoc.services.OwnerService;
+import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
+@Service
 public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements OwnerService {
+
     @Override
     public Set<Owner> findAll() {
         return super.findAll();

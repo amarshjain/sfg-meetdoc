@@ -1,12 +1,12 @@
 package com.springframework.sfgmeetdoc.services.map;
 
 import com.springframework.sfgmeetdoc.model.Doc;
-import com.springframework.sfgmeetdoc.model.Patient;
-import com.springframework.sfgmeetdoc.services.CrudService;
 import com.springframework.sfgmeetdoc.services.DocService;
+import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
+@Service
 public class DocServiceMap extends AbstractMapService<Doc, Long> implements DocService {
     @Override
     public Set<Doc> findAll() {
