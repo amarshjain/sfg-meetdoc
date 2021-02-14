@@ -20,7 +20,7 @@ public class DocServiceMap extends AbstractMapService<Doc, Long> implements DocS
 
     @Override
     public Doc save(Doc object) {
-        return super.save(object.getId(), object);
+        return super.save(object);
     }
 
     @Override
