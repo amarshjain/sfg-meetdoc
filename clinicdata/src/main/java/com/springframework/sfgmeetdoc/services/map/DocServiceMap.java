@@ -1,13 +1,22 @@
 package com.springframework.sfgmeetdoc.services.map;
 
 import com.springframework.sfgmeetdoc.model.Doc;
+import com.springframework.sfgmeetdoc.model.Speciality;
 import com.springframework.sfgmeetdoc.services.DocService;
+import com.springframework.sfgmeetdoc.services.SpecialtyService;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
 @Service
 public class DocServiceMap extends AbstractMapService<Doc, Long> implements DocService {
+
+    private final SpecialtyService specialtyService;
+
+    public DocServiceMap(SpecialtyService specialtyService) {
+        this.specialtyService = specialtyService;
+    }
+
     @Override
     public Set<Doc> findAll() {
         return super.findAll();
@@ -20,6 +29,15 @@ public class DocServiceMap extends AbstractMapService<Doc, Long> implements DocS
 
     @Override
     public Doc save(Doc object) {
+
+        if(object.getSpecialities().size() > 0){
+            object.getSpecialities().forEach(speciality -> {
+                if(speciality.getId() == null){
+                    Speciality savedSpeciality = specialtyService.save(speciality);
+                    speciality.setId(savedSpeciality.getId());
+                }
+            });
+        }
         return super.save(object);
     }
 
