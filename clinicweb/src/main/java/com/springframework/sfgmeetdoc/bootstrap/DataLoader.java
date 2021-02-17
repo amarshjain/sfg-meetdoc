@@ -2,8 +2,10 @@ package com.springframework.sfgmeetdoc.bootstrap;
 
 import com.springframework.sfgmeetdoc.model.Doc;
 import com.springframework.sfgmeetdoc.model.Owner;
+import com.springframework.sfgmeetdoc.model.PatientType;
 import com.springframework.sfgmeetdoc.services.DocService;
 import com.springframework.sfgmeetdoc.services.OwnerService;
+import com.springframework.sfgmeetdoc.services.PatientTypeService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -12,14 +14,24 @@ public class DataLoader implements CommandLineRunner {
 
     private final OwnerService ownerService;
     private final DocService docService;
+    private final PatientTypeService patientTypeService;
 
-    public DataLoader(OwnerService ownerService, DocService docService) {
+    public DataLoader(OwnerService ownerService, DocService docService, PatientTypeService patientTypeService) {
         this.ownerService = ownerService;
         this.docService = docService;
+        this.patientTypeService = patientTypeService;
     }
 
     @Override
     public void run(String... args) throws Exception {
+
+        PatientType pwd = new PatientType();
+        pwd.setName("PWD");
+        PatientType savedPwdType = patientTypeService.save(pwd);
+
+        PatientType diseased = new PatientType();
+        diseased.setName("Diseased");
+        PatientType savedDiseasedType = patientTypeService.save(diseased);
 
         Owner owner1 = new Owner();
         owner1.setFirstName("Ghanshyam");
