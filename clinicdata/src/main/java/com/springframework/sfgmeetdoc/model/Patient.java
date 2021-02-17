@@ -3,9 +3,18 @@ package com.springframework.sfgmeetdoc.model;
 import java.time.LocalDate;
 
 public class Patient extends BaseEntity {
+    private String name;
     private PatientType patientType;
     private Owner owner;
     private LocalDate birthDate;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 
     public PatientType getPatientType() {
         return patientType;
