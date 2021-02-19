@@ -10,12 +10,12 @@ import org.springframework.stereotype.Service;
 import java.util.Set;
 
 @Service
-public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements OwnerService {
+public class OwnerMapService extends AbstractMapService<Owner, Long> implements OwnerService {
 
     private final PatientTypeService patientTypeService;
     private final PatientService patientService;
 
-    public OwnerServiceMap(PatientTypeService patientTypeService, PatientService patientService) {
+    public OwnerMapService(PatientTypeService patientTypeService, PatientService patientService) {
         this.patientTypeService = patientTypeService;
         this.patientService = patientService;
     }
