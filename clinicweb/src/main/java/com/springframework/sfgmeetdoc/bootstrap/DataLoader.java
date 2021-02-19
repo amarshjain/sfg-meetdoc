@@ -1,10 +1,7 @@
 package com.springframework.sfgmeetdoc.bootstrap;
 
 import com.springframework.sfgmeetdoc.model.*;
-import com.springframework.sfgmeetdoc.services.DocService;
-import com.springframework.sfgmeetdoc.services.OwnerService;
-import com.springframework.sfgmeetdoc.services.PatientTypeService;
-import com.springframework.sfgmeetdoc.services.SpecialtyService;
+import com.springframework.sfgmeetdoc.services.*;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -17,12 +14,18 @@ public class DataLoader implements CommandLineRunner {
     private final DocService docService;
     private final PatientTypeService patientTypeService;
     private final SpecialtyService specialtyService;
+    private final VisitService visitService;
 
-    public DataLoader(OwnerService ownerService, DocService docService, PatientTypeService patientTypeService, SpecialtyService specialtyService) {
+    public DataLoader(OwnerService ownerService,
+                      DocService docService,
+                      PatientTypeService patientTypeService,
+                      SpecialtyService specialtyService,
+                      VisitService visitService) {
         this.ownerService = ownerService;
         this.docService = docService;
         this.patientTypeService = patientTypeService;
         this.specialtyService = specialtyService;
+        this.visitService = visitService;
     }
 
     @Override
@@ -87,6 +90,13 @@ public class DataLoader implements CommandLineRunner {
         owner2.getPatients().add(vadra);
 
         ownerService.save(owner2);
+
+        Visit checkupVisit = new Visit();
+        checkupVisit.setPatient(vadra);
+        checkupVisit.setDate(LocalDate.now());
+        checkupVisit.setDescription("Common Cold");
+
+        visitService.save(checkupVisit);
 
         System.out.println("Loaded Owners...");
 
