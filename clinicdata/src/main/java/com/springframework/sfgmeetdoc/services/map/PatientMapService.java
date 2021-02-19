@@ -2,11 +2,13 @@ package com.springframework.sfgmeetdoc.services.map;
 
 import com.springframework.sfgmeetdoc.model.Patient;
 import com.springframework.sfgmeetdoc.services.PatientService;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
 @Service
+@Profile({"default", "map"})
 public class PatientMapService extends AbstractMapService<Patient, Long> implements PatientService {
     @Override
     public Set<Patient> findAll() {

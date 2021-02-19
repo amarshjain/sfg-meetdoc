@@ -4,11 +4,13 @@ import com.springframework.sfgmeetdoc.model.Doc;
 import com.springframework.sfgmeetdoc.model.Speciality;
 import com.springframework.sfgmeetdoc.services.DocService;
 import com.springframework.sfgmeetdoc.services.SpecialtyService;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
 @Service
+@Profile({"default", "map"})
 public class DocMapService extends AbstractMapService<Doc, Long> implements DocService {
 
     private final SpecialtyService specialtyService;

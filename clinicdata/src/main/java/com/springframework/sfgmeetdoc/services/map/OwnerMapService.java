@@ -5,11 +5,13 @@ import com.springframework.sfgmeetdoc.model.Patient;
 import com.springframework.sfgmeetdoc.services.OwnerService;
 import com.springframework.sfgmeetdoc.services.PatientService;
 import com.springframework.sfgmeetdoc.services.PatientTypeService;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
 @Service
+@Profile({"default", "map"})
 public class OwnerMapService extends AbstractMapService<Owner, Long> implements OwnerService {
 
     private final PatientTypeService patientTypeService;
