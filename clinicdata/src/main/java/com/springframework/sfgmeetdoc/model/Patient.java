@@ -2,6 +2,8 @@ package com.springframework.sfgmeetdoc.model;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "patients")
@@ -20,6 +22,9 @@ public class Patient extends BaseEntity {
 
     @Column(name = "birth_date")
     private LocalDate birthDate;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "patient")
+    private Set<Visit> visits = new HashSet<>();
 
     public String getName() {
         return name;
