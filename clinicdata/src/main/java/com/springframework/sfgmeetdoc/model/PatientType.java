@@ -1,6 +1,14 @@
 package com.springframework.sfgmeetdoc.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "types")
 public class PatientType extends BaseEntity {
+
+    @Column(name = "name")
     private String name;
 
     public String getName() {
