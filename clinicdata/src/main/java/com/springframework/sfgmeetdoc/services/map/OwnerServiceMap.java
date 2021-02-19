@@ -2,7 +2,6 @@ package com.springframework.sfgmeetdoc.services.map;
 
 import com.springframework.sfgmeetdoc.model.Owner;
 import com.springframework.sfgmeetdoc.model.Patient;
-import com.springframework.sfgmeetdoc.model.PatientType;
 import com.springframework.sfgmeetdoc.services.OwnerService;
 import com.springframework.sfgmeetdoc.services.PatientService;
 import com.springframework.sfgmeetdoc.services.PatientTypeService;
