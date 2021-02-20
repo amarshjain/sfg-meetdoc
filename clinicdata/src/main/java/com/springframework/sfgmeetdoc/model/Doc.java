@@ -1,9 +1,16 @@
 package com.springframework.sfgmeetdoc.model;
 
+import lombok.*;
+
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 @Entity
 @Table(name = "docs")
 public class Doc extends Person{

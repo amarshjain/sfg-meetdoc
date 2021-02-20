@@ -1,10 +1,17 @@
 package com.springframework.sfgmeetdoc.model;
 
+import lombok.*;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Set;
 
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 @Entity
 @Table(name = "patients")
 public class Patient extends BaseEntity {
@@ -26,35 +33,4 @@ public class Patient extends BaseEntity {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "patient")
     private Set<Visit> visits = new HashSet<>();
 
-    public String getName() {
-        return name;
     }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public PatientType getPatientType() {
-        return patientType;
-    }
-
-    public void setPatientType(PatientType patientType) {
-        this.patientType = patientType;
-    }
-
-    public Owner getOwner() {
-        return owner;
-    }
-
-    public void setOwner(Owner owner) {
-        this.owner = owner;
-    }
-
-    public LocalDate getBirthDate() {
-        return birthDate;
-    }
-
-    public void setBirthDate(LocalDate birthDate) {
-        this.birthDate = birthDate;
-    }
-}
